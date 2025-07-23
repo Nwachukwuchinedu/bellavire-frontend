@@ -18,7 +18,7 @@ const Navbar = () => {
             alt="Bellevivre Logo"
             className="h-8 w-auto object-contain"
           />
-          <span className="text-xl font-bold text-blue-600">
+          <span className="text-xl font-bold text-secondary">
             Bellevivre Ltd
           </span>
         </div>
@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-6 font-medium text-sm">
           {/* Buy Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition focus:outline-none">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-secondary  transition focus:outline-none">
               <span>Buy</span>
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
@@ -38,13 +38,13 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition">
+          <a href="#" className="text-secondary  transition">
             Sell
           </a>
 
           {/* Rent Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition focus:outline-none">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-secondary  transition focus:outline-none">
               <span>Rent</span>
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
@@ -55,13 +55,13 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition">
+          <a href="#" className="text-secondary  transition">
             Manage Properties
           </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition">
+          <a href="#" className="text-secondary  transition">
             About Us
           </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 transition">
+          <a href="#" className="text-secondary  transition">
             Contact
           </a>
         </div>
