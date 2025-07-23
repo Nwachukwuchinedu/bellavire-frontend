@@ -33,9 +33,9 @@ const TestimonialCard = ({
     >
       <CardContent className="p-0">
         <div className="space-y-4">
-          <p className="text-gray-700 text-base leading-relaxed">{comment}</p>
+          <p className="text-secondary text-base leading-relaxed">{comment}</p>
           <div className="flex flex-col">
-            <span className="font-semibold text-gray-900">{name}</span>
+            <span className="font-semibold text-black">{name}</span>
             <div className="flex space-x-1 mt-1">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -53,7 +53,7 @@ const TestimonialCard = ({
 
 const TestimonialSection = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className=" bg-white">
       <div className="max-w-7xl mx-auto px-6 bg-blue-600 text-white p-5 mb-4">
         <h2 className="text-4xl font-bold text-center">Testimonial</h2>
       </div>
