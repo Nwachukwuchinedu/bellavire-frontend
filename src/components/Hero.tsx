@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -7,34 +6,41 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-[600px] bg-gradient-to-r from-gray-800/80 to-gray-600/80 flex items-center">
+    <div className="relative min-h-screen bg-gradient-to-r from-gray-800/80 to-gray-600/80 flex items-center">
+      {/* Background Image */}
       <div className="absolute inset-0 bg-[url('/Rectangle%20101.png')] bg-cover bg-center bg-no-repeat" />
-
       <div className="absolute inset-0 bg-black/40" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4">
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white pb-10">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
           Find, Rent, and Manage Your Next Home
         </h1>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
           All in One Place
         </h2>
-        <p className="text-xl mb-12 max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl mb-12 max-w-2xl mx-auto">
           Your trusted UK-based property platform for tenants, landlords, and
           agents
         </p>
 
-        <div className="bg-white/10 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+        {/* Form Card */}
+        <div className="bg-white p-6 rounded-lg max-w-5xl mx-auto mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 items-end">
+            {/* Property Type */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-medium text-secondary">
                 Property Search
               </label>
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger
+                  className="w-full border border-black rounded-lg text-black"
+                  icon={<ChevronDown className="text-black" />}
+                >
                   <SelectValue placeholder="To Buy" />
                 </SelectTrigger>
                 <SelectContent>
@@ -45,17 +51,36 @@ const Hero = () => {
               </Select>
             </div>
 
+            {/* Location */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-medium text-secondary">
                 Location
               </label>
-              <Input placeholder="Any Location" className="w-full" />
+              <Select>
+                <SelectTrigger
+                  className="w-full border border-black rounded-lg text-black"
+                  icon={<ChevronDown className="text-black" />}
+                >
+                  <SelectValue placeholder="Any Location" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="london">London</SelectItem>
+                  <SelectItem value="manchester">Manchester</SelectItem>
+                  <SelectItem value="birmingham">Birmingham</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
+            {/* Price */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">Price</label>
+              <label className="text-sm font-medium text-secondary">
+                Price
+              </label>
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger
+                  className="w-full border border-black rounded-lg text-black"
+                  icon={<ChevronDown className="text-black" />}
+                >
                   <SelectValue placeholder="Price" />
                 </SelectTrigger>
                 <SelectContent>
@@ -66,10 +91,14 @@ const Hero = () => {
               </Select>
             </div>
 
+            {/* Beds */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700">Bed</label>
+              <label className="text-sm font-medium text-secondary">Bed</label>
               <Select>
-                <SelectTrigger className="w-full">
+                <SelectTrigger
+                  className="w-full border border-black rounded-lg text-black"
+                  icon={<ChevronDown className="text-black" />}
+                >
                   <SelectValue placeholder="Bed" />
                 </SelectTrigger>
                 <SelectContent>
@@ -81,7 +110,8 @@ const Hero = () => {
               </Select>
             </div>
 
-            <Button className="bg-primary hover:bg-primary/90 text-white h-10">
+            {/* Button */}
+            <Button className="bg-primary hover:bg-primary/90 text-white h-10 w-full">
               Search
             </Button>
           </div>
