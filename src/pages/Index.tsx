@@ -13,9 +13,9 @@ const Index = () => {
 
   const properties = [
     {
-      img: "https://imgs.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80",
-      title: "4 Bedrooms Apartments",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
+      image: "/images/property1.png",
+      title: "Vivian's Luxury Apartment",
+      address: "Flat 12, Park View Road, Camden, London NW1 7HE",
       price: "£1,200 /month",
       beds: 4,
       baths: 2,
@@ -23,9 +23,9 @@ const Index = () => {
       type: "Featured",
     },
     {
-      img: "https://imgs.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
-      title: "3 bedrooms Apartments",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
+      image: "/images/property2.png",
+      title: "Greenwich Court",
+      address: "Unit 5, Greenwich Court, Woolwich, London SE18 6XD",
       price: "£800 /month",
       beds: 3,
       baths: 2,
@@ -33,9 +33,9 @@ const Index = () => {
       type: "Featured",
     },
     {
-      img: "https://imgs.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=500&q=80",
-      title: "3 bedrooms Apartments",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
+      image: "/images/property3.png",
+      title: "Precious Apartments",
+      address: "20 Church Street, Ancoats, Manchester M4 1PN",
       price: "£900 /month",
       beds: 3,
       baths: 2,
@@ -43,9 +43,9 @@ const Index = () => {
       type: "Featured",
     },
     {
-      img: "https://imgs.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80",
-      title: "2 bedrooms Apartments",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
+      image: "/images/property4.png",
+      title: "Montana Homes",
+      address: "82 Rose Lane, Mossley Hill, Liverpool L18 5ED",
       price: "£700 /month",
       beds: 2,
       baths: 1,
@@ -53,9 +53,9 @@ const Index = () => {
       type: "Featured",
     },
     {
-      img: "https://imgs.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80",
-      title: "3 bedrooms Apartments",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
+      image: "/images/property5.png",
+      title: "Ese's Palace",
+      address: "Flat 7, Clarendon Road, Leeds LS2 9DA",
       price: "£850 /month",
       beds: 3,
       baths: 2,
@@ -63,9 +63,9 @@ const Index = () => {
       type: "Featured",
     },
     {
-      img: "https://imgs.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=80",
-      title: "3 bedrooms Apartments",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
+      image: "/images/property6.png",
+      title: "Cynthia's Apartments",
+      address: "14 Deansgate, City Centre, Manchester M3 1FB",
       price: "£950 /month",
       beds: 3,
       baths: 2,
@@ -106,7 +106,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       {/* Popular Properties Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 text-secondary bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
             Popular Properties
@@ -118,7 +118,7 @@ const Index = () => {
           </div>
           <div className="text-center">
             <Button
-              className="bg-primary hover:bg-primary/90 text-white"
+              className="bg-blue-500  text-white px-6 py-3"
               onClick={() => navigate("/properties")}
             >
               View More Property
@@ -295,7 +295,7 @@ const Index = () => {
           </div>
           <Button
             variant="outline"
-            className="border-primary bg-blue-600 text-white text-lg px-6 py-6"
+            className="border-white bg-blue-600 text-white text-lg px-6 py-6"
           >
             Learn More
           </Button>
