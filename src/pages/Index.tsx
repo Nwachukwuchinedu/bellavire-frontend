@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import TestimonialCard from "@/components/TestimonialCard";
 import TestimonialSection from "@/components/TestimonialCard";
 
 const Index = () => {
@@ -74,51 +72,25 @@ const Index = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Logan Sanders",
-      avatar:
-        "https://imgs.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
-      rating: 5,
-      comment:
-        "Working with Bellevivre Ltd has been a fantastic experience. I found my perfect home...",
-    },
-    {
-      name: "Jay Anderson",
-      avatar:
-        "https://imgs.unsplash.com/photo-1494790108755-2616b612b47c?auto=format&fit=crop&w=100&q=80",
-      rating: 5,
-      comment:
-        "Finding my flat in rent had never been easier thanks to Bellevivre.",
-    },
-    {
-      name: "Sandra Emeka",
-      avatar:
-        "https://imgs.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
-      rating: 5,
-      comment:
-        "Thanks to the Bellevivre team who helped us manage several of...",
-    },
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      {/* Popular Properties Section */}
-      <section className="py-16 text-secondary bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+
+      {/* Popular Properties */}
+      <section className="py-12 sm:py-16 bg-gray-50 text-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             Popular Properties
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {properties.map((property, index) => (
               <PropertyCard key={index} {...property} />
             ))}
           </div>
           <div className="text-center">
             <Button
-              className="bg-blue-500  text-white px-6 py-3"
+              className="bg-blue-500 text-white px-6 py-3"
               onClick={() => navigate("/properties")}
             >
               View More Property
@@ -127,171 +99,81 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Who Is This For Section */}
-
-      <section className="py-10 text-secondary bg-gray-100">
-        <div className="max-w-7xl mx-auto px-16">
+      {/* Who Is This For */}
+      <section className="py-12 sm:py-16 bg-gray-100 text-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             Who Is This For?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-            {/* Tenant Card */}
-            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "For Tenants",
+                icon: "/user-multiple.png",
+                desc: "Browse verified homes, submit rental applications, and secure your next space online.",
+              },
+              {
+                title: "For Landlords",
+                icon: "/home-10.png",
+                desc: "List your property, screen applicants, accept and manage rent payments from one dashboard.",
+              },
+              {
+                title: "For Agents",
+                icon: "/briefcase-01 (1).png",
+                desc: "Use our platform to help match tenants with listings and viewings efficiently.",
+              },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center"
+              >
                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                  <img
-                    src="/user-multiple.png"
-                    alt="Tenant icon"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8"
-                  />
+                  <img src={card.icon} alt={card.title} className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">For Tenants</h3>
-                <p className="text-secondary">
-                  Browse verified homes, submit rental applications, and secure
-                  your next space online.
-                </p>
+                <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
+                <p>{card.desc}</p>
               </div>
-            </div>
-
-            {/* Landlord Card */}
-            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                  <img
-                    src="/home-10.png"
-                    alt="Landlord icon"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">For Landlords</h3>
-                <p className="text-secondary">
-                  List your property, screen applicants, accept and manage rent
-                  payments from one dashboard.
-                </p>
-              </div>
-            </div>
-
-            {/* Agent Card */}
-            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                  <img
-                    src="/briefcase-01 (1).png"
-                    alt="Agent icon"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">For Agents</h3>
-                <p className="text-secondary">
-                  Use our platform to help match tenants with listings and
-                  viewings efficiently.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* What You Can Do Section */}
-      <section className="py-10 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl text-secondary font-bold mb-6">
-            What You Can Do
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-3">
-            {/* Feature 1 */}
-            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
-              <div className="mr-2 mt-1 flex-shrink-0">
-                <img
-                  src="/svg/search-02.png"
-                  alt="Discover properties"
-                  width={24}
-                  height={24}
-                />
+      {/* What You Can Do */}
+      <section className="py-12 sm:py-16 bg-gray-50 text-secondary">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-10">What You Can Do</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-left">
+            {[
+              {
+                icon: "/svg/search-02.png",
+                text: "Discover verified properties in the UK",
+              },
+              {
+                icon: "/svg/file-02.png",
+                text: "Sign digital lease agreements",
+              },
+              {
+                icon: "/svg/wallet-02.png",
+                text: "Secure rent payments & transaction history",
+              },
+              {
+                icon: "/svg/solar_document-add-outline.png",
+                text: "Manage documents and tenancy from one place",
+              },
+              {
+                icon: "/svg/hugeicons_sale-tag-01.png",
+                text: "List and market your property easily",
+              },
+              { icon: "/svg/briefcase-01.png", text: "Become a sub-agent" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 p-3 bg-white rounded-md hover:shadow transition-all"
+              >
+                <img src={item.icon} alt="icon" className="w-6 h-6 mt-1" />
+                <span>{item.text}</span>
               </div>
-              <span className="text-secondary">
-                Discover verified properties in the UK
-              </span>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
-              <div className="mr-2 mt-1 flex-shrink-0">
-                <img
-                  src="/svg/file-02.png"
-                  alt="Digital lease"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <span className="text-secondary">
-                Sign digital lease agreements
-              </span>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
-              <div className="mr-2 mt-1 flex-shrink-0">
-                <img
-                  src="/svg/wallet-02.png"
-                  alt="Secure payments"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <span className="text-secondary">
-                Secure rent payments & transaction history
-              </span>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
-              <div className="mr-2 mt-1 flex-shrink-0">
-                <img
-                  src="/svg/solar_document-add-outline.png"
-                  alt="Manage documents"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <span className="text-secondary">
-                Manage documents and tenancy from one place
-              </span>
-            </div>
-
-            {/* Feature 5 */}
-            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
-              <div className="mr-2 mt-1 flex-shrink-0">
-                <img
-                  src="/svg/hugeicons_sale-tag-01.png"
-                  alt="List property"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <span className="text-secondary">
-                List and market your property easily
-              </span>
-            </div>
-
-            {/* Feature 6 */}
-            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
-              <div className="mr-2 mt-1 flex-shrink-0">
-                <img
-                  src="/svg/briefcase-01.png"
-                  alt="Become agent"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <span className="text-secondary">Become a sub-agent</span>
-            </div>
+            ))}
           </div>
           <Button
             variant="outline"
@@ -301,8 +183,10 @@ const Index = () => {
           </Button>
         </div>
       </section>
-      {/* Testimonial Section */}
+
+      {/* Testimonials */}
       <TestimonialSection />
+
       <Footer />
     </div>
   );

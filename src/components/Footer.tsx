@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 flex flex-col gap-8 sm:flex-col justify-between">
+        <div className="flex-1 flex flex-col gap-8 md:flex-col justify-between">
           {/* Newsletter Section */}
           <div className="mb-4">
             <h2 className="text-lg font-semibold mb-4">
