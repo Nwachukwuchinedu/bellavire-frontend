@@ -130,17 +130,17 @@ const Index = () => {
       {/* Who Is This For Section */}
 
       <section className="py-10 text-secondary bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-16">
           <h2 className="text-3xl font-bold text-center mb-12">
             Who Is This For?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
             {/* Tenant Card */}
-            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                   <img
-                    src="/assets/tenant-icon.svg"
+                    src="/user-multiple.png"
                     alt="Tenant icon"
                     width={32}
                     height={32}
@@ -156,11 +156,11 @@ const Index = () => {
             </div>
 
             {/* Landlord Card */}
-            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                   <img
-                    src="/assets/landlord-icon.svg"
+                    src="/home-10.png"
                     alt="Landlord icon"
                     width={32}
                     height={32}
@@ -176,11 +176,11 @@ const Index = () => {
             </div>
 
             {/* Agent Card */}
-            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                   <img
-                    src="/assets/agent-icon.svg"
+                    src="/briefcase-01 (1).png"
                     alt="Agent icon"
                     width={32}
                     height={32}
@@ -199,7 +199,7 @@ const Index = () => {
       </section>
 
       {/* What You Can Do Section */}
-      <section className="py-1 bg-gray-50">
+      <section className="py-10 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl text-secondary font-bold mb-6">
             What You Can Do
