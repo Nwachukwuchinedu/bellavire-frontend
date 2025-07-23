@@ -111,7 +111,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-
       {/* Popular Properties Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -133,7 +132,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* Who Is This For Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -174,38 +172,107 @@ const Index = () => {
           </div>
         </div>
       </section>
-
       {/* What You Can Do Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-1 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-12">What You Can Do</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="flex items-start text-left">
-              <Check className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <span>Discover verified properties in the UK</span>
+          <h2 className="text-3xl text-blue-700 font-bold mb-6">
+            What You Can Do
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-3">
+            {/* Feature 1 */}
+            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
+              <div className="mr-2 mt-1 flex-shrink-0">
+                <img
+                  src="/svg/search-02.png"
+                  alt="Discover properties"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span className="text-gray-700">
+                Discover verified properties in the UK
+              </span>
             </div>
-            <div className="flex items-start text-left">
-              <Check className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <span>Sign digital lease agreements</span>
+
+            {/* Feature 2 */}
+            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
+              <div className="mr-2 mt-1 flex-shrink-0">
+                <img
+                  src="/svg/file-02.png"
+                  alt="Digital lease"
+                  width={24}
+                  height={24}
+                  className="text-green-500"
+                />
+              </div>
+              <span className="text-gray-700">
+                Sign digital lease agreements
+              </span>
             </div>
-            <div className="flex items-start text-left">
-              <Check className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <span>Secure rent payments & transaction history</span>
+
+            {/* Feature 3 */}
+            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
+              <div className="mr-2 mt-1 flex-shrink-0">
+                <img
+                  src="/svg/wallet-02.png"
+                  alt="Secure payments"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span className="text-gray-700">
+                Secure rent payments & transaction history
+              </span>
             </div>
-            <div className="flex items-start text-left">
-              <Check className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <span>Manage documents and tenancy from one place</span>
+
+            {/* Feature 4 */}
+            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
+              <div className="mr-2 mt-1 flex-shrink-0">
+                <img
+                  src="/svg/solar_document-add-outline.png"
+                  alt="Manage documents"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span className="text-gray-700">
+                Manage documents and tenancy from one place
+              </span>
             </div>
-            <div className="flex items-start text-left">
-              <Check className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <span>List and market your property easily</span>
+
+            {/* Feature 5 */}
+            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
+              <div className="mr-2 mt-1 flex-shrink-0">
+                <img
+                  src="/svg/hugeicons_sale-tag-01.png"
+                  alt="List property"
+                  width={24}
+                  height={24}
+                  className="text-green-500"
+                />
+              </div>
+              <span className="text-gray-700">
+                List and market your property easily
+              </span>
             </div>
-            <div className="flex items-start text-left">
-              <Check className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-              <span>Become a sub-agents</span>
+
+            {/* Feature 6 */}
+            <div className="flex items-start text-left p-2 bg-white rounded-none hover:shadow-sm transition-all">
+              <div className="mr-2 mt-1 flex-shrink-0">
+                <img
+                  src="/svg/briefcase-01.png"
+                  alt="Become agent"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span className="text-gray-700">Become a sub-agent</span>
             </div>
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-white">
+          <Button
+            variant="outline"
+            className="border-primary bg-blue-700 text-white text-lg px-6 py-6"
+          >
             Learn More
           </Button>
         </div>
@@ -213,7 +280,6 @@ const Index = () => {
 
       {/* Testimonial Section */}
       <TestimonialSection />
-
       <Footer />
     </div>
   );
