@@ -13,8 +13,7 @@ const Index = () => {
 
   const properties = [
     {
-      image:
-        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80",
+      img: "https://imgs.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80",
       title: "4 Bedrooms Apartments",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£1,200 /month",
@@ -24,8 +23,7 @@ const Index = () => {
       type: "Featured",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
+      img: "https://imgs.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
       title: "3 bedrooms Apartments",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£800 /month",
@@ -35,8 +33,7 @@ const Index = () => {
       type: "Featured",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=500&q=80",
+      img: "https://imgs.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=500&q=80",
       title: "3 bedrooms Apartments",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£900 /month",
@@ -46,8 +43,7 @@ const Index = () => {
       type: "Featured",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80",
+      img: "https://imgs.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80",
       title: "2 bedrooms Apartments",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£700 /month",
@@ -57,8 +53,7 @@ const Index = () => {
       type: "Featured",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80",
+      img: "https://imgs.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80",
       title: "3 bedrooms Apartments",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£850 /month",
@@ -68,8 +63,7 @@ const Index = () => {
       type: "Featured",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=80",
+      img: "https://imgs.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=80",
       title: "3 bedrooms Apartments",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£950 /month",
@@ -84,7 +78,7 @@ const Index = () => {
     {
       name: "Logan Sanders",
       avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
+        "https://imgs.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
       rating: 5,
       comment:
         "Working with Bellevivre Ltd has been a fantastic experience. I found my perfect home...",
@@ -92,7 +86,7 @@ const Index = () => {
     {
       name: "Jay Anderson",
       avatar:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b47c?auto=format&fit=crop&w=100&q=80",
+        "https://imgs.unsplash.com/photo-1494790108755-2616b612b47c?auto=format&fit=crop&w=100&q=80",
       rating: 5,
       comment:
         "Finding my flat in rent had never been easier thanks to Bellevivre.",
@@ -100,7 +94,7 @@ const Index = () => {
     {
       name: "Sandra Emeka",
       avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
+        "https://imgs.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
       rating: 5,
       comment:
         "Thanks to the Bellevivre team who helped us manage several of...",
@@ -132,50 +126,82 @@ const Index = () => {
           </div>
         </div>
       </section>
+
       {/* Who Is This For Section */}
-      <section className="py-16">
+
+      <section className="py-16 text-secondary bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
             Who Is This For?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-primary rounded"></div>
+            {/* Tenant Card */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                  <img
+                    src="/assets/tenant-icon.svg"
+                    alt="Tenant icon"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">For Tenants</h3>
+                <p className="text-secondary">
+                  Browse verified homes, submit rental applications, and secure
+                  your next space online.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3">For Tenants</h3>
-              <p className="text-gray-600">
-                Browse verified homes, submit rental applications, and secure
-                your next space online.
-              </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-primary rounded"></div>
+
+            {/* Landlord Card */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                  <img
+                    src="/assets/landlord-icon.svg"
+                    alt="Landlord icon"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">For Landlords</h3>
+                <p className="text-secondary">
+                  List your property, screen applicants, accept and manage rent
+                  payments from one dashboard.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3">For Landlords</h3>
-              <p className="text-gray-600">
-                List your property, screen applicants, accept and manage rent
-                payments from one dashboard.
-              </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-primary rounded"></div>
+
+            {/* Agent Card */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                  <img
+                    src="/assets/agent-icon.svg"
+                    alt="Agent icon"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">For Agents</h3>
+                <p className="text-secondary">
+                  Use our platform to help match tenants with listings and
+                  viewings efficiently.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3">For Agents</h3>
-              <p className="text-gray-600">
-                Use our platform to help match tenants with listings and
-                viewings efficiently.
-              </p>
             </div>
           </div>
         </div>
       </section>
+
       {/* What You Can Do Section */}
       <section className="py-1 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl text-blue-700 font-bold mb-6">
+          <h2 className="text-3xl text-secondary font-bold mb-6">
             What You Can Do
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-3">
@@ -189,7 +215,7 @@ const Index = () => {
                   height={24}
                 />
               </div>
-              <span className="text-gray-700">
+              <span className="text-secondary">
                 Discover verified properties in the UK
               </span>
             </div>
@@ -202,10 +228,9 @@ const Index = () => {
                   alt="Digital lease"
                   width={24}
                   height={24}
-                  className="text-green-500"
                 />
               </div>
-              <span className="text-gray-700">
+              <span className="text-secondary">
                 Sign digital lease agreements
               </span>
             </div>
@@ -220,7 +245,7 @@ const Index = () => {
                   height={24}
                 />
               </div>
-              <span className="text-gray-700">
+              <span className="text-secondary">
                 Secure rent payments & transaction history
               </span>
             </div>
@@ -235,7 +260,7 @@ const Index = () => {
                   height={24}
                 />
               </div>
-              <span className="text-gray-700">
+              <span className="text-secondary">
                 Manage documents and tenancy from one place
               </span>
             </div>
@@ -248,10 +273,9 @@ const Index = () => {
                   alt="List property"
                   width={24}
                   height={24}
-                  className="text-green-500"
                 />
               </div>
-              <span className="text-gray-700">
+              <span className="text-secondary">
                 List and market your property easily
               </span>
             </div>
@@ -266,18 +290,17 @@ const Index = () => {
                   height={24}
                 />
               </div>
-              <span className="text-gray-700">Become a sub-agent</span>
+              <span className="text-secondary">Become a sub-agent</span>
             </div>
           </div>
           <Button
             variant="outline"
-            className="border-primary bg-blue-700 text-white text-lg px-6 py-6"
+            className="border-primary bg-blue-600 text-white text-lg px-6 py-6"
           >
             Learn More
           </Button>
         </div>
       </section>
-
       {/* Testimonial Section */}
       <TestimonialSection />
       <Footer />
