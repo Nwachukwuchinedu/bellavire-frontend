@@ -53,7 +53,7 @@ const TestimonialCard = ({
 
 const TestimonialSection = () => {
   return (
-    <section className=" bg-white">
+    <section className="py-4 bg-white">
       <div className="max-w-7xl mx-auto px-6 bg-blue-600 text-white p-5 mb-4">
         <h2 className="text-4xl font-bold text-center">Testimonial</h2>
       </div>
