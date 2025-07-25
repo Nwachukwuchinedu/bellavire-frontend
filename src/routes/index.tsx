@@ -9,108 +9,112 @@ import LandlordDashboard from '@/pages/landlord/Dashboard';
 import TenantDashboard from '@/pages/tenant/Dashboard';
 import AgentDashboard from '@/pages/agent/Dashboard';
 import NotFound from '@/pages/NotFound';
+import AboutUs from '@/pages/AboutUs';
 
 // Protected Route Component
-const ProtectedRoute = ({ 
-  children, 
-  allowedRoles 
-}: { 
-  children: React.ReactNode; 
-  allowedRoles: string[];
+const ProtectedRoute = ({
+	children,
+	allowedRoles,
+}: {
+	children: React.ReactNode;
+	allowedRoles: string[];
 }) => {
-  const { isAuthenticated, user } = useAuthStore();
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-  
-  if (user && !allowedRoles.includes(user.role)) {
-    return <Navigate to="/unauthorized" replace />;
-  }
-  
-  return <>{children}</>;
+	const { isAuthenticated, user } = useAuthStore();
+
+	if (!isAuthenticated) {
+		return <Navigate to="/login" replace />;
+	}
+
+	if (user && !allowedRoles.includes(user.role)) {
+		return <Navigate to="/unauthorized" replace />;
+	}
+
+	return <>{children}</>;
 };
 
 // Dashboard Router based on role
 const DashboardRouter = () => {
-  const { user } = useAuthStore();
-  
-  switch (user?.role) {
-    case 'admin':
-      return <AdminDashboard />;
-    case 'landlord':
-      return <LandlordDashboard />;
-    case 'tenant':
-      return <TenantDashboard />;
-    case 'agent':
-      return <AgentDashboard />;
-    default:
-      return <Navigate to="/login" replace />;
-  }
+	const { user } = useAuthStore();
+
+	switch (user?.role) {
+		case 'admin':
+			return <AdminDashboard />;
+		case 'landlord':
+			return <LandlordDashboard />;
+		case 'tenant':
+			return <TenantDashboard />;
+		case 'agent':
+			return <AgentDashboard />;
+		default:
+			return <Navigate to="/login" replace />;
+	}
 };
 
 export const AppRoutes = () => {
-  return (
-    <Routes>
-      {/* Public Routes */}
-      <Route path="/" element={<Index />} />
-      <Route path="/properties" element={<Properties />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      
-      {/* Protected Dashboard Route */}
-      <Route 
-        path="/dashboard" 
-        element={
-          <ProtectedRoute allowedRoles={['admin', 'landlord', 'tenant', 'agent']}>
-            <DashboardRouter />
-          </ProtectedRoute>
-        } 
-      />
-      
-      {/* Admin Routes */}
-      <Route 
-        path="/admin/*" 
-        element={
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminDashboard />
-          </ProtectedRoute>
-        } 
-      />
-      
-      {/* Landlord Routes */}
-      <Route 
-        path="/landlord/*" 
-        element={
-          <ProtectedRoute allowedRoles={['landlord']}>
-            <LandlordDashboard />
-          </ProtectedRoute>
-        } 
-      />
-      
-      {/* Tenant Routes */}
-      <Route 
-        path="/tenant/*" 
-        element={
-          <ProtectedRoute allowedRoles={['tenant']}>
-            <TenantDashboard />
-          </ProtectedRoute>
-        } 
-      />
-      
-      {/* Agent Routes */}
-      <Route 
-        path="/agent/*" 
-        element={
-          <ProtectedRoute allowedRoles={['agent']}>
-            <AgentDashboard />
-          </ProtectedRoute>
-        } 
-      />
-      
-      {/* 404 and Unauthorized */}
-      <Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+	return (
+		<Routes>
+			{/* Public Routes */}
+			<Route path="/" element={<Index />} />
+			<Route path="/properties" element={<Properties />} />
+			<Route path="/login" element={<Login />} />
+			<Route path="/register" element={<Register />} />
+			<Route path="/about-us" element={<AboutUs />} />
+
+			{/* Protected Dashboard Route */}
+			<Route
+				path="/dashboard"
+				element={
+					<ProtectedRoute
+						allowedRoles={['admin', 'landlord', 'tenant', 'agent']}
+					>
+						<DashboardRouter />
+					</ProtectedRoute>
+				}
+			/>
+
+			{/* Admin Routes */}
+			<Route
+				path="/admin/*"
+				element={
+					<ProtectedRoute allowedRoles={['admin']}>
+						<AdminDashboard />
+					</ProtectedRoute>
+				}
+			/>
+
+			{/* Landlord Routes */}
+			<Route
+				path="/landlord/*"
+				element={
+					<ProtectedRoute allowedRoles={['landlord']}>
+						<LandlordDashboard />
+					</ProtectedRoute>
+				}
+			/>
+
+			{/* Tenant Routes */}
+			<Route
+				path="/tenant/*"
+				element={
+					<ProtectedRoute allowedRoles={['tenant']}>
+						<TenantDashboard />
+					</ProtectedRoute>
+				}
+			/>
+
+			{/* Agent Routes */}
+			<Route
+				path="/agent/*"
+				element={
+					<ProtectedRoute allowedRoles={['agent']}>
+						<AgentDashboard />
+					</ProtectedRoute>
+				}
+			/>
+
+			{/* 404 and Unauthorized */}
+			<Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
+			<Route path="*" element={<NotFound />} />
+		</Routes>
+	);
 };
