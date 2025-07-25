@@ -22,7 +22,7 @@ const Navbar = () => {
             <img
               src="/Group 36230.png"
               alt="Bellevivre Logo"
-              className="h-8 w-auto object-contain bg-secondary"
+              className="h-8 w-auto object-contain "
             />
           </Link>
           <Link to="/">

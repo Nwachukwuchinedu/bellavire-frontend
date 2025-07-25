@@ -12,7 +12,7 @@ const Footer = () => {
             <img
               src="/Group 36230.png"
               alt="Bellevivre Logo"
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain "
             />
             <span className="text-xl font-bold text-white">Bellevivre Ltd</span>
           </div>
