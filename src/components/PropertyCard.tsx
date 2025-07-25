@@ -26,7 +26,7 @@ const PropertyCard = ({
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative">
         <img src={image} alt={title} className="w-full h-48 object-cover" />
-        <Badge className="absolute top-3 right-4 bg-primary text-white">
+        <Badge className="absolute top-3 right-4 bg-primary text-white rounded-none">
           {price}
         </Badge>
       </div>
