@@ -98,10 +98,11 @@ const Register = () => {
                                 leftIcon={<LockKeyhole className={'size-4 text-gray-300'} />}
                                 label={"Password"} 
                                 name={"password"} 
+                                type={'password'}
                                 placeholder=" "
                                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                 required 
-                                mask={false} 
+                                mask={true} 
                                 />
                                 <div className='flex items-start gap-0.5 mt-1'>
                                     <img src={Warning} className='w-4 h-4' alt="" />
@@ -118,7 +119,8 @@ const Register = () => {
                               className={'placeholder:text-gray-300'} 
                               label={"Password"} 
                               name={"password"} 
-                              onChange={(e) => setFormData({ ...formData, password: e.target.value })}      
+                              onChange={(e) => setFormData({ ...formData, password: e.target.value })}  
+                              mask={true}    
                             />
 
                             <div className='grid gap-2'>
