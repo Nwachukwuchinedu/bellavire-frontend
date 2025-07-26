@@ -10,6 +10,7 @@ import TenantDashboard from '@/pages/tenant/Dashboard';
 import AgentDashboard from '@/pages/agent/Dashboard';
 import NotFound from '@/pages/NotFound';
 import AboutUs from '@/pages/AboutUs';
+import { InitiateRegisterPage } from '@/pages/auth/InitiateRegisterPage';
 
 // Protected Route Component
 const ProtectedRoute = ({
@@ -57,6 +58,7 @@ export const AppRoutes = () => {
 			<Route path="/" element={<Index />} />
 			<Route path="/properties" element={<Properties />} />
 			<Route path="/login" element={<Login />} />
+			<Route path="/initiate-register" element={<InitiateRegisterPage />} />
 			<Route path="/register" element={<Register />} />
 			<Route path="/about-us" element={<AboutUs />} />
 
