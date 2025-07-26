@@ -144,7 +144,7 @@ const handleNavigateToRegister = () => {
                             <Button 
                             onClick={handleNavigateSteps}
                             className="text-[20px] font-medium leading-[100%] py-1.5 px-3 w-full md:w-[286px] h-[51px]" type="button" disabled={ step === 1 && (!selectedAccountId) || step === 2 && (!selectedTypeId)}> 
-                            Get Started </Button>  
+                             {step === 1 && "Get Started"} {step === 2 && "Continue"} </Button>  
                         </div>
                         {step === 1 && (
                             <p className='my-3 text-[14px] text-center font-medium'>
