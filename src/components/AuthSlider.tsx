@@ -22,7 +22,7 @@ const overlayContents = [
 
 type BottomProps = {
   bottom: number;
-};
+}
 
 const AuthSlider: React.FC<BottomProps> = ({ bottom }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -58,7 +58,8 @@ const AuthSlider: React.FC<BottomProps> = ({ bottom }) => {
         <img src="/loginLogoWhite.png" alt="Logo" className="w-36 md:w-52" />
       </div>
       <div
-        className={`hidden lg:flex absolute bottom-${bottom} left-1/2 transform -translate-x-1/2 w-[80%] h-[250px] bg-[#1e1e1e]/30 rounded-[16px] items-center justify-start px-10 z-20`}
+        className={`hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-[80%] h-[250px] bg-[#1e1e1e]/30 rounded-[16px] items-center justify-start px-10 z-20`}
+        style={{ bottom: `${bottom}px` }}
       >
         <div className="text-left max-w-xl text-white space-y-2">
           <h2 className="text-4xl w-[90%] font-bold">
