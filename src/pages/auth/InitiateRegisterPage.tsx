@@ -4,7 +4,7 @@ import CardHeader2 from "@/assets/icons/user-organization.svg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "@/assets/images/logo.png";
-import { useAuthStore } from "@/stores/authStore";
+import { useAuthStore, UserRole } from "@/stores/authStore";
 
 export const InitiateRegisterPage = () => {
   const { user } = useAuthStore();
@@ -26,26 +26,27 @@ export const InitiateRegisterPage = () => {
     navigate(`/register?type=${type}`);
   };
 
-  const AccountType: any[] = [
-    {
-      id: 1,
-      name: "Tenant",
-      headerIcon: CardHeader,
-      description: "I'm looking to rent a property",
-    },
-    {
-      id: 2,
-      name: "Landlord",
-      headerIcon: CardHeader2,
-      description: "I want to list and manage my properties",
-    },
-    {
-      id: 3,
-      name: "Agent",
-      headerIcon: CardHeader2,
-      description: "I manage properties on behalf of others.",
-    },
-  ];
+const AccountType: { id: string; name: UserRole; headerIcon: string; description: string }[] = [
+  {
+    id: "1",
+    name: "tenant",
+    headerIcon: CardHeader,
+    description: "I'm looking to rent a property",
+  },
+  {
+    id: "2",
+    name: "landlord",
+    headerIcon: CardHeader2,
+    description: "I want to list and manage my properties",
+  },
+  {
+    id: "3",
+    name: "agent",
+    headerIcon: CardHeader2,
+    description: "I manage properties on behalf of others.",
+  },
+];
+
   const UserType: any[] = [
     {
       id: 1,
@@ -101,7 +102,7 @@ export const InitiateRegisterPage = () => {
                         className="w-6 lg:w-8 h-6 lg:h-8"
                       />
                       <h4 className="text-[18px] lg:text-[26px] font-medium leading-[100%] text-[#1E1E1E]">
-                        {account.name}
+                        {account.name.charAt(0).toUpperCase() + account.name.slice(1)}
                       </h4>
                     </div>
                     <div>

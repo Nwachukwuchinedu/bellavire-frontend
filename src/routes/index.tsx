@@ -12,6 +12,8 @@ import NotFound from '@/pages/NotFound';
 import AboutUs from '@/pages/AboutUs';
 import { InitiateRegisterPage } from '@/pages/auth/InitiateRegisterPage';
 import ForgotPassword from '@/pages/auth/ForgotPassword';
+import GoogleAuthPage from '@/pages/auth/GoogleAuthPage';
+import VerifyEmailAddressPage from '@/pages/auth/VerifyEmailAddressPage';
 
 // Protected Route Component
 const ProtectedRoute = ({
@@ -58,11 +60,13 @@ export const AppRoutes = () => {
 			{/* Public Routes */}
 			<Route path="/" element={<Index />} />
 			<Route path="/properties" element={<Properties />} />
-			<Route path="/login" element={<Login />} />
-			<Route path="/initiate-register" element={<InitiateRegisterPage />} />
-			<Route path="/register" element={<Register />} />
+			<Route path="/auth/login" element={<Login />} />
+			<Route path="/auth/initiate-register" element={<InitiateRegisterPage />} />
+			<Route path="/auth/register" element={<Register />} />
 			<Route path="/about-us" element={<AboutUs />} />
-			<Route path="/forgot-password" element={<ForgotPassword />} />
+			<Route path="/auth/forgot-password" element={<ForgotPassword />} />
+			<Route path="/auth/google-auth" element={<GoogleAuthPage />} />
+			<Route path="/auth/verify-email" element={<VerifyEmailAddressPage />} />
 
 			{/* Protected Dashboard Route */}
 			<Route

@@ -54,7 +54,7 @@ const AuthSlider: React.FC<BottomProps> = ({ bottom }) => {
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10" />
-      <div className="absolute top-8 mb-10 left-1/2 transform -translate-x-1/2 z-30 block lg:hidden">
+      <div className="absolute top-20 md:top-8 mb-10 left-1/2 transform -translate-x-1/2 z-30 block lg:hidden">
         <img src="/loginLogoWhite.png" alt="Logo" className="w-36 md:w-52" />
       </div>
       <div
