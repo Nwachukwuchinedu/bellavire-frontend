@@ -108,3 +108,8 @@ All colors MUST be HSL.
   }
 }
 
+
+.tap-effect {
+  @apply cursor-pointer transition duration-150 ease-in-out transform active:scale-95;
+}
+
