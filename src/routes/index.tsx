@@ -10,6 +10,8 @@ import TenantDashboard from '@/pages/tenant/Dashboard';
 import AgentDashboard from '@/pages/agent/Dashboard';
 import NotFound from '@/pages/NotFound';
 import AboutUs from '@/pages/AboutUs';
+import ContactUs from '@/pages/ContactUs';
+import Career from '@/pages/Career';
 
 // Protected Route Component
 const ProtectedRoute = ({
@@ -59,6 +61,8 @@ export const AppRoutes = () => {
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
 			<Route path="/about-us" element={<AboutUs />} />
+			<Route path="/contact-us" element={<ContactUs />} />
+			<Route path="/career" element={<Career />} />
 
 			{/* Protected Dashboard Route */}
 			<Route
