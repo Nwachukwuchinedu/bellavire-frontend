@@ -14,6 +14,7 @@ import { InitiateRegisterPage } from '@/pages/auth/InitiateRegisterPage';
 import ForgotPassword from '@/pages/auth/ForgotPassword';
 import GoogleAuthPage from '@/pages/auth/GoogleAuthPage';
 import VerifyEmailAddressPage from '@/pages/auth/VerifyEmailAddressPage';
+import PersonInformation from '@/pages/auth/PersonInformation';
 
 // Protected Route Component
 const ProtectedRoute = ({
@@ -67,6 +68,7 @@ export const AppRoutes = () => {
 			<Route path="/auth/forgot-password" element={<ForgotPassword />} />
 			<Route path="/auth/google-auth" element={<GoogleAuthPage />} />
 			<Route path="/auth/verify-email" element={<VerifyEmailAddressPage />} />
+			<Route path="/auth/person-info" element={<PersonInformation />} />
 
 			{/* Protected Dashboard Route */}
 			<Route
