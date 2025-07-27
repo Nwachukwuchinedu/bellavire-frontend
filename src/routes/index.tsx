@@ -11,6 +11,7 @@ import AgentDashboard from '@/pages/agent/Dashboard';
 import NotFound from '@/pages/NotFound';
 import AboutUs from '@/pages/AboutUs';
 import { InitiateRegisterPage } from '@/pages/auth/InitiateRegisterPage';
+import ForgotPassword from '@/pages/auth/ForgotPassword';
 
 // Protected Route Component
 const ProtectedRoute = ({
@@ -61,6 +62,7 @@ export const AppRoutes = () => {
 			<Route path="/initiate-register" element={<InitiateRegisterPage />} />
 			<Route path="/register" element={<Register />} />
 			<Route path="/about-us" element={<AboutUs />} />
+			<Route path="/forgot-password" element={<ForgotPassword />} />
 
 			{/* Protected Dashboard Route */}
 			<Route
