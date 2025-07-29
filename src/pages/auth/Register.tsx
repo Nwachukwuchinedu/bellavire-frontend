@@ -311,11 +311,7 @@ const Register = () => {
       <div className="w-full lg:w-1/2 lg:ml-[50%] flex items-center justify-center px-2 py-4 lg:px-4">
         <div className="bg-white rounded-[24px] w-full max-w-md p-6 shadow-lg">
           <div className="flex flex-col items-center mb-6">
-            <img
-              src={Logo}
-              alt="logo"
-              className="hidden lg:block w-36 md:w-52"
-            />
+            <img src={Logo} alt="logo" className="w-36 md:w-52" />
             <h2 className="mt-4 text-[#1e1e1e] font-semibold text-[17px] md:text-[24px] leading-[19px]">
               Create an Account
             </h2>
