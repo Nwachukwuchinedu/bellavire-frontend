@@ -23,7 +23,7 @@ export const InitiateRegisterPage = () => {
     if (!selectedTypeId) return;
     const type = Number(selectedTypeId) === 1 ? "individual" : "organization";
     //   navigate(`/register/customers/add-single-customer?type=${type}`);
-    navigate(`/register?type=${type}`);
+    navigate(`/auth/register?type=${type}`);
   };
 
 const AccountType: { id: string; name: UserRole; headerIcon: string; description: string }[] = [

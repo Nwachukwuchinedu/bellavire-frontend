@@ -9,8 +9,10 @@ import { Formik } from "formik";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCountdown } from "@/lib/useCountDown";
+import { useNavigate } from "react-router-dom";
 
 const VerifyEmailAddressPage: React.FC = () => {
+  const navigate = useNavigate()
 const otpSchema = Yup.object().shape({
   otp: Yup.string()
     .length(6, "OTP must be exactly 6 digits")
@@ -23,6 +25,17 @@ const { isComplete, formattedTime } = useCountdown(
     null,
     true
 );
+
+function navigateToNextPage() {
+  navigate("/dashboard")
+}
+const navigateToNextPageOne = () => {
+  navigate("/auth/login")
+}
+
+// const navigateToPrevPage = {
+//   navigate("/auth/login")
+// }
 
   return (
     <div className="relative min-h-screen h-[100vh] flex flex-col lg:flex-row">
@@ -103,7 +116,7 @@ const { isComplete, formattedTime } = useCountdown(
                       <span className="text-blue-500">{formattedTime.formatted}</span>
                     )}
                   </p>
-                <Button className=" border-[#D4D4D4]  tap-effect text-white w-full flex items-center justify-center gap-2
+                <Button onClick={navigateToNextPage} className=" border-[#D4D4D4]  tap-effect text-white w-full flex items-center justify-center gap-2
                 !rounded-lg tap-effect py-6 font-normal text-[14px] lg:text-[20px]">
                     Verify email address
                 </Button>

@@ -67,11 +67,11 @@ const Register = () => {
     };
 
     login(newUser);
-    navigate("/dashboard");
+    navigate("/auth/verify-email");
   };
 
   const handleGoogleLogin = () => {
-    navigate("/google-auth");
+    navigate("/auth/google-auth");
   };
 
   return (
