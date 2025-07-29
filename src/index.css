@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -103,3 +107,9 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+
+.tap-effect {
+  @apply cursor-pointer transition duration-150 ease-in-out transform active:scale-95;
+}
+
