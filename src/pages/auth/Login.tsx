@@ -8,16 +8,18 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 const Login: React.FC = () => {
-   const loginSchema = Yup.object().shape({
+  const loginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
       .required("Password is required")
       .min(8, "Password must be at least 8 characters")
       .matches(/[A-Z]/, "Password must contain at least one capital letter")
       .matches(/[0-9]/, "Password must contain at least one number")
-      .matches(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
+      .matches(
+        /[^A-Za-z0-9]/,
+        "Password must contain at least one special character"
+      ),
   });
-
 
   return (
     <div className="relative min-h-screen h-[100vh] flex flex-col lg:flex-row">
@@ -109,11 +111,13 @@ const Login: React.FC = () => {
                 </Button>
 
                 <Link
-                  to="/initiate-register"
+                  to="/auth/initiate-register"
                   className="text-center text-sm mt-1"
                 >
                   Don't have an account?{" "}
-                  <span className="text-[#5a86ff] font-semibold">Create Account</span>
+                  <span className="text-[#5a86ff] font-semibold">
+                    Create Account
+                  </span>
                 </Link>
               </form>
             )}
