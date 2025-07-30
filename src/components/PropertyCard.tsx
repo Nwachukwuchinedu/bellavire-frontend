@@ -4,7 +4,7 @@ import { MapPin, Bed, Bath, Square, Wifi, Car, Coffee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface PropertyCardProps {
-  image: string;
+  images: string[];
   title: string;
   address: string;
   price: string;
@@ -16,7 +16,7 @@ interface PropertyCardProps {
 }
 
 const PropertyCard = ({
-  image,
+  images,
   title,
   address,
   price,
@@ -29,17 +29,23 @@ const PropertyCard = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/property/${id}`);
+    navigate(`/property/${id}`); // Fixed: using destructured 'id' prop
   };
 
   return (
     <Card
       className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
       onClick={handleClick}
+      aria-label={`View details for ${title}`} // Added for accessibility
     >
       <div className="relative">
-        <img src={image} alt={title} className="w-full h-48 object-cover" />
-        <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
+        <img
+          src={images[0] || "/placeholder-image.jpg"}
+          alt={title}
+          className="w-full h-48 object-cover"
+          loading="lazy" // Added for performance
+        />
+        <Badge className="absolute top-3 right-3 bg-primary rounded-none text-primary-foreground">
           {price}
         </Badge>
       </div>
@@ -52,15 +58,19 @@ const PropertyCard = ({
         <div className="flex items-center justify-between text-sm text-secondary mb-3">
           <div className="flex items-center">
             <Bed className="h-4 w-4 mr-1" />
-            <span>{beds}</span>
+            <span>
+              {beds} {beds === 1 ? "bed" : "beds"}
+            </span>
           </div>
           <div className="flex items-center">
             <Bath className="h-4 w-4 mr-1" />
-            <span>{baths}</span>
+            <span>
+              {baths} {baths === 1 ? "bath" : "baths"}
+            </span>
           </div>
           <div className="flex items-center">
             <Square className="h-4 w-4 mr-1" />
-            <span>{sqft} sq ft</span>
+            <span>{sqft.toLocaleString()} sq ft</span>
           </div>
         </div>
         <div className="flex items-center gap-4 text-secondary">

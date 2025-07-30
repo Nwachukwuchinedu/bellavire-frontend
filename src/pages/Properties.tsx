@@ -8,18 +8,35 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Badge } from "lucide-react";
 import { Search } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 
+interface Property {
+  id: string;
+  images: string;
+  title: string;
+  address: string;
+  price: string;
+  beds: number;
+  baths: number;
+  sqft: number;
+  type: string;
+}
+
 const Properties = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
 
   const allProperties = [
     {
-      image:
+      id: "1",
+      images: [
         "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Greenwich Residences",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£1,200 /month",
@@ -29,8 +46,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "2",
+      images: [
         "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "Manchester Heights",
       address: "12 Victoria Square, Manchester M2 5FT",
       price: "£800 /month",
@@ -40,8 +59,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "3",
+      images: [
         "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Royal Gardens",
       address: "7 King's Road, Manchester M3 3EL",
       price: "£900 /month",
@@ -51,8 +72,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "4",
+      images: [
         "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "Parkview Apartments",
       address: "22 Greenfield Park, Manchester M4 1GD",
       price: "£700 /month",
@@ -62,8 +85,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "5",
+      images: [
         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Wellington",
       address: "15 Wellington Street, Manchester M1 2JJ",
       price: "£850 /month",
@@ -73,8 +98,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "6",
+      images: [
         "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "Riverside Lofts",
       address: "3 Bridgewater Quay, Manchester M3 4AE",
       price: "£950 /month",
@@ -84,8 +111,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "7",
+      images: [
         "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Manchester Grand",
       address: "50 Deansgate, Manchester M3 2FE",
       price: "£1,100 /month",
@@ -95,8 +124,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "8",
+      images: [
         "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "City Lights Apartments",
       address: "8 Oxford Road, Manchester M1 5QA",
       price: "£750 /month",
@@ -106,8 +137,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "9",
+      images: [
         "https://images.unsplash.com/photo-1566908829483-b83ede509096?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Victoria",
       address: "24 Victoria Station Approach, Manchester M3 1WQ",
       price: "£1,050 /month",
@@ -117,8 +150,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "10",
+      images: [
         "https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "Studio 54",
       address: "54 Chapel Street, Manchester M3 5BZ",
       price: "£650 /month",
@@ -128,8 +163,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "11",
+      images: [
         "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Penthouse Collection",
       address: "1 Spinningfields, Manchester M3 3EB",
       price: "£1,300 /month",
@@ -139,8 +176,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "12",
+      images: [
         "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "Northern Quarter Living",
       address: "36 Thomas Street, Manchester M4 1ER",
       price: "£950 /month",
@@ -150,8 +189,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "13",
+      images: [
         "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Charter",
       address: "Charter Street, Manchester M1 6HF",
       price: "£800 /month",
@@ -161,8 +202,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "14",
+      images: [
         "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "Castlefield Wharf",
       address: "12 Liverpool Road, Manchester M3 4JQ",
       price: "£1,150 /month",
@@ -172,8 +215,10 @@ const Properties = () => {
       type: "Featured",
     },
     {
-      image:
+      id: "15",
+      images: [
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500&q=80",
+      ],
       title: "The Salford Quays Apartments",
       address: "7 Media City Way, Salford M50 2EQ",
       price: "£700 /month",
@@ -184,18 +229,47 @@ const Properties = () => {
     },
   ];
 
-  // Filter properties based on search term
+  // Filter properties based on search term and filters
   const filteredProperties = allProperties.filter((property) => {
-    if (!searchTerm) return true;
+    // Search term filter
+    if (searchTerm) {
+      const searchLower = searchTerm.toLowerCase();
+      const matchesSearch =
+        property.title.toLowerCase().includes(searchLower) ||
+        property.address.toLowerCase().includes(searchLower) ||
+        property.price.toLowerCase().includes(searchLower) ||
+        property.type.toLowerCase().includes(searchLower);
 
-    const searchLower = searchTerm.toLowerCase();
-    return (
-      property.title.toLowerCase().includes(searchLower) ||
-      property.address.toLowerCase().includes(searchLower) ||
-      property.price.toLowerCase().includes(searchLower) ||
-      property.type.toLowerCase().includes(searchLower)
-    );
+      if (!matchesSearch) return false;
+    }
+
+    // Price filter
+    if (priceFilter) {
+      const priceNum = parseInt(property.price.replace(/[^0-9]/g, ""));
+      if (priceFilter === "0-500" && priceNum > 500) return false;
+      if (priceFilter === "500-1000" && (priceNum <= 500 || priceNum > 1000))
+        return false;
+      if (priceFilter === "1000-2000" && (priceNum <= 1000 || priceNum > 2000))
+        return false;
+      if (priceFilter === "2000+" && priceNum <= 2000) return false;
+    }
+
+    // Type filter
+    if (
+      typeFilter &&
+      property.type.toLowerCase() !== typeFilter.toLowerCase()
+    ) {
+      return false;
+    }
+
+    return true;
   });
+
+  const clearFilters = () => {
+    setSearchTerm("");
+    setPriceFilter("");
+    setTypeFilter("");
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -218,17 +292,18 @@ const Properties = () => {
 
             {/* Filter Dropdowns */}
             <div className="flex gap-2 flex-wrap">
-              <Select>
-                <SelectTrigger className="w-32">
-                  <SelectValue placeholder="For Sale" />
+              <Select value={typeFilter} onValueChange={setTypeFilter}>
+                <SelectTrigger className="w-36">
+                  <SelectValue placeholder="Property Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="for-sale">For Sale</SelectItem>
-                  <SelectItem value="for-rent">For Rent</SelectItem>
+                  <SelectItem value="apartment">Apartment</SelectItem>
+                  <SelectItem value="house">House</SelectItem>
+                  <SelectItem value="studio">Studio</SelectItem>
                 </SelectContent>
               </Select>
 
-              <Select>
+              <Select value={priceFilter} onValueChange={setPriceFilter}>
                 <SelectTrigger className="w-24">
                   <SelectValue placeholder="Price" />
                 </SelectTrigger>
@@ -240,52 +315,48 @@ const Properties = () => {
                 </SelectContent>
               </Select>
 
-              <Select>
-                <SelectTrigger className="w-36">
-                  <SelectValue placeholder="Property Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="apartment">Apartment</SelectItem>
-                  <SelectItem value="house">House</SelectItem>
-                  <SelectItem value="studio">Studio</SelectItem>
-                </SelectContent>
-              </Select>
-
-              <Select>
-                <SelectTrigger className="w-36">
-                  <SelectValue placeholder="Beds & Baths" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1-1">1 Bed, 1 Bath</SelectItem>
-                  <SelectItem value="2-1">2 Bed, 1 Bath</SelectItem>
-                  <SelectItem value="2-2">2 Bed, 2 Bath</SelectItem>
-                  <SelectItem value="3-2">3 Bed, 2 Bath</SelectItem>
-                  <SelectItem value="4-2">4 Bed, 2 Bath</SelectItem>
-                </SelectContent>
-              </Select>
-
-              <Select>
-                <SelectTrigger className="w-20">
-                  <SelectValue placeholder="More" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="parking">Parking</SelectItem>
-                  <SelectItem value="garden">Garden</SelectItem>
-                  <SelectItem value="furnished">Furnished</SelectItem>
-                </SelectContent>
-              </Select>
+              <Button
+                variant="outline"
+                onClick={clearFilters}
+                className="whitespace-nowrap"
+              >
+                Clear Filters
+              </Button>
             </div>
           </div>
 
-          {/* Results Count */}
-          <p className="text-muted-foreground mb-6">
-            {filteredProperties.length} Properties Found
-          </p>
+          {/* Results Count and Active Filters */}
+          <div className="flex justify-between items-center mb-6">
+            <p className="text-muted-foreground">
+              {filteredProperties.length}{" "}
+              {filteredProperties.length === 1 ? "Property" : "Properties"}{" "}
+              Found
+            </p>
+            {(searchTerm || priceFilter || typeFilter) && (
+              <div className="flex gap-2">
+                {searchTerm && (
+                  <Badge className="px-3 py-1 text-sm">
+                    Search: {searchTerm}
+                  </Badge>
+                )}
+                {priceFilter && (
+                  <Badge className="px-3 py-1 text-sm">
+                    Price: {priceFilter}
+                  </Badge>
+                )}
+                {typeFilter && (
+                  <Badge className="px-3 py-1 text-sm">
+                    Type: {typeFilter}
+                  </Badge>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* Properties Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-secondary">
-            {filteredProperties.map((property, index) => (
-              <PropertyCard key={index} {...property} id={index + 1} />
+            {filteredProperties.map((property) => (
+              <PropertyCard key={property.id} {...property} />
             ))}
           </div>
 
@@ -296,6 +367,9 @@ const Properties = () => {
               <p className="text-muted-foreground mt-2">
                 Try adjusting your search criteria
               </p>
+              <Button variant="outline" onClick={clearFilters} className="mt-4">
+                Clear All Filters
+              </Button>
             </div>
           )}
         </div>
