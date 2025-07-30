@@ -155,7 +155,7 @@ const Career = () => {
             </div>
 
             {/* Bottom-right: Smiling man */}
-            <div className="absolute  bottom-0 -right-10 w-40 h-20 lg:w-60 lg:h-24 rounded-2xl overflow-hidden shadow-lg">
+            <div className="absolute  bottom-0 -right-12 w-40 h-20 lg:w-60 lg:h-24 rounded-2xl overflow-hidden shadow-lg">
               <img
                 src="/image4.png"
                 alt="Professional smiling man"
