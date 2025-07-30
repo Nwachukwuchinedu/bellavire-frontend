@@ -45,11 +45,11 @@ const PropertyCard = ({
       </div>
       <CardContent className="p-4">
         <h3 className="font-semibold text-lg mb-2 text-primary">{title}</h3>
-        <div className="flex items-center text-muted-foreground mb-3">
+        <div className="flex items-center text-secondary mb-3">
           <MapPin className="h-4 w-4 mr-1" />
           <span className="text-sm">{address}</span>
         </div>
-        <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
+        <div className="flex items-center justify-between text-sm text-secondary mb-3">
           <div className="flex items-center">
             <Bed className="h-4 w-4 mr-1" />
             <span>{beds}</span>
@@ -63,7 +63,7 @@ const PropertyCard = ({
             <span>{sqft} sq ft</span>
           </div>
         </div>
-        <div className="flex items-center gap-4 text-muted-foreground">
+        <div className="flex items-center gap-4 text-secondary">
           <div className="flex items-center gap-1">
             <Wifi className="h-4 w-4" />
             <span className="text-xs">Wifi</span>
