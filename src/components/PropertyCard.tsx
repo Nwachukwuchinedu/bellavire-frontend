@@ -4,7 +4,7 @@ import { MapPin, Bed, Bath, Square, Wifi, Car, Coffee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface PropertyCardProps {
-  images: string[];
+  image: string;
   title: string;
   address: string;
   price: string;
@@ -16,7 +16,7 @@ interface PropertyCardProps {
 }
 
 const PropertyCard = ({
-  images,
+  image,
   title,
   address,
   price,
@@ -40,12 +40,12 @@ const PropertyCard = ({
     >
       <div className="relative">
         <img
-          src={images[0] || "/placeholder-image.jpg"}
+          src={image}
           alt={title}
           className="w-full h-48 object-cover"
           loading="lazy" // Added for performance
         />
-        <Badge className="absolute top-3 right-3 bg-primary rounded-none text-primary-foreground">
+        <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
           {price}
         </Badge>
       </div>

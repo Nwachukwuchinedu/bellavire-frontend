@@ -34,9 +34,9 @@ const Properties = () => {
   const allProperties = [
     {
       id: "1",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Greenwich Residences",
       address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
       price: "£1,200 /month",
@@ -47,9 +47,9 @@ const Properties = () => {
     },
     {
       id: "2",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "Manchester Heights",
       address: "12 Victoria Square, Manchester M2 5FT",
       price: "£800 /month",
@@ -60,9 +60,9 @@ const Properties = () => {
     },
     {
       id: "3",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Royal Gardens",
       address: "7 King's Road, Manchester M3 3EL",
       price: "£900 /month",
@@ -73,9 +73,9 @@ const Properties = () => {
     },
     {
       id: "4",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "Parkview Apartments",
       address: "22 Greenfield Park, Manchester M4 1GD",
       price: "£700 /month",
@@ -86,9 +86,9 @@ const Properties = () => {
     },
     {
       id: "5",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Wellington",
       address: "15 Wellington Street, Manchester M1 2JJ",
       price: "£850 /month",
@@ -99,9 +99,9 @@ const Properties = () => {
     },
     {
       id: "6",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "Riverside Lofts",
       address: "3 Bridgewater Quay, Manchester M3 4AE",
       price: "£950 /month",
@@ -112,9 +112,9 @@ const Properties = () => {
     },
     {
       id: "7",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Manchester Grand",
       address: "50 Deansgate, Manchester M3 2FE",
       price: "£1,100 /month",
@@ -125,9 +125,9 @@ const Properties = () => {
     },
     {
       id: "8",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "City Lights Apartments",
       address: "8 Oxford Road, Manchester M1 5QA",
       price: "£750 /month",
@@ -138,9 +138,9 @@ const Properties = () => {
     },
     {
       id: "9",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1566908829483-b83ede509096?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Victoria",
       address: "24 Victoria Station Approach, Manchester M3 1WQ",
       price: "£1,050 /month",
@@ -151,9 +151,9 @@ const Properties = () => {
     },
     {
       id: "10",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "Studio 54",
       address: "54 Chapel Street, Manchester M3 5BZ",
       price: "£650 /month",
@@ -164,9 +164,9 @@ const Properties = () => {
     },
     {
       id: "11",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Penthouse Collection",
       address: "1 Spinningfields, Manchester M3 3EB",
       price: "£1,300 /month",
@@ -177,9 +177,9 @@ const Properties = () => {
     },
     {
       id: "12",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "Northern Quarter Living",
       address: "36 Thomas Street, Manchester M4 1ER",
       price: "£950 /month",
@@ -190,9 +190,9 @@ const Properties = () => {
     },
     {
       id: "13",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Charter",
       address: "Charter Street, Manchester M1 6HF",
       price: "£800 /month",
@@ -203,9 +203,9 @@ const Properties = () => {
     },
     {
       id: "14",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "Castlefield Wharf",
       address: "12 Liverpool Road, Manchester M3 4JQ",
       price: "£1,150 /month",
@@ -216,9 +216,9 @@ const Properties = () => {
     },
     {
       id: "15",
-      images: [
+      image:
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500&q=80",
-      ],
+
       title: "The Salford Quays Apartments",
       address: "7 Media City Way, Salford M50 2EQ",
       price: "£700 /month",
