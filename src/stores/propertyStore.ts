@@ -1,53 +1,19 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { v4 as uuidv4 } from "uuid";
+import { Property, PropertyState, sampleProperties } from "@/assets/datasets/PropertiesDataset";
 
-type PropertyType = "apartment" | "house" | "condo" | "studio";
-type PropertyStatus = "available" | "occupied" | "maintenance";
+export type PropertyType = "apartment" | "house" | "condo" | "studio";
+export type PropertyStatus = "available" | "occupied" | "maintenance";
 
-interface Property {
-  id: string;
-  title: string;
-  address: string;
-  rent: number;
-  type: PropertyType;
-  status: PropertyStatus;
-  landlordId: string;
-  tenantId?: string;
-  agentId?: string;
-  images: string[];
-  description: string;
-  bedrooms: number;
-  bathrooms: number;
-  area: number;
-  amenities: string[];
-  createdAt: Date;
-  updatedAt: Date;
-}
 
-interface PropertyState {
-  properties: Property[];
-  selectedProperty: Property | null;
-  isLoading: boolean;
-  error: string | null;
-  fetchProperties: () => Promise<void>;
-  fetchPropertyById: (id: string) => Promise<Property | undefined>;
-  addProperty: (
-    property: Omit<Property, "id" | "createdAt" | "updatedAt">
-  ) => Promise<string>;
-  updateProperty: (
-    id: string,
-    updates: Partial<Omit<Property, "id">>
-  ) => Promise<void>;
-  deleteProperty: (id: string) => Promise<void>;
-  setSelectedProperty: (id: string | null) => Promise<void>;
-  clearError: () => void;
-}
+
+
 
 export const usePropertyStore = create<PropertyState>()(
   persist(
     (set, get) => ({
-      properties: [],
+      properties: sampleProperties, // Initialize with sample data
       selectedProperty: null,
       isLoading: false,
       error: null,
@@ -55,13 +21,8 @@ export const usePropertyStore = create<PropertyState>()(
       fetchProperties: async () => {
         try {
           set({ isLoading: true, error: null });
-          // Simulate API call - replace with actual fetch
-          const response = await new Promise<Property[]>((resolve) => {
-            setTimeout(() => {
-              resolve([]); // Replace with actual API data
-            }, 1000);
-          });
-          set({ properties: response });
+          // Return the sample properties instead of empty array
+          set({ properties: sampleProperties });
         } catch (err) {
           set({ error: "Failed to fetch properties" });
           console.error("Fetch properties error:", err);
@@ -203,4 +164,4 @@ export const usePropertyStore = create<PropertyState>()(
 );
 
 // Utility types for external usage
-export type { Property, PropertyType, PropertyStatus };
+// export type { Property, PropertyType, PropertyStatus };

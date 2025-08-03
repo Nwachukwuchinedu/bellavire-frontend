@@ -13,6 +13,7 @@ import { Search } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
+import { usePropertyStore } from "@/stores/propertyStore";
 
 interface Property {
   id: string;
@@ -30,204 +31,20 @@ const Properties = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [priceFilter, setPriceFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
+  const { properties } = usePropertyStore();
 
-  const allProperties = [
-    {
-      id: "1",
-      image:
-        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Greenwich Residences",
-      address: "Apt 5, Greenwich Court, Greenwich, Manchester M1 4FY",
-      price: "£1,200 /month",
-      beds: 4,
-      baths: 2,
-      sqft: 1200,
-      type: "Featured",
-    },
-    {
-      id: "2",
-      image:
-        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
-
-      title: "Manchester Heights",
-      address: "12 Victoria Square, Manchester M2 5FT",
-      price: "£800 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1000,
-      type: "Featured",
-    },
-    {
-      id: "3",
-      image:
-        "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Royal Gardens",
-      address: "7 King's Road, Manchester M3 3EL",
-      price: "£900 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 950,
-      type: "Featured",
-    },
-    {
-      id: "4",
-      image:
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80",
-
-      title: "Parkview Apartments",
-      address: "22 Greenfield Park, Manchester M4 1GD",
-      price: "£700 /month",
-      beds: 2,
-      baths: 1,
-      sqft: 800,
-      type: "Featured",
-    },
-    {
-      id: "5",
-      image:
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Wellington",
-      address: "15 Wellington Street, Manchester M1 2JJ",
-      price: "£850 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 950,
-      type: "Featured",
-    },
-    {
-      id: "6",
-      image:
-        "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=500&q=80",
-
-      title: "Riverside Lofts",
-      address: "3 Bridgewater Quay, Manchester M3 4AE",
-      price: "£950 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1100,
-      type: "Featured",
-    },
-    {
-      id: "7",
-      image:
-        "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Manchester Grand",
-      address: "50 Deansgate, Manchester M3 2FE",
-      price: "£1,100 /month",
-      beds: 4,
-      baths: 3,
-      sqft: 1300,
-      type: "Featured",
-    },
-    {
-      id: "8",
-      image:
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=500&q=80",
-
-      title: "City Lights Apartments",
-      address: "8 Oxford Road, Manchester M1 5QA",
-      price: "£750 /month",
-      beds: 2,
-      baths: 1,
-      sqft: 850,
-      type: "Featured",
-    },
-    {
-      id: "9",
-      image:
-        "https://images.unsplash.com/photo-1566908829483-b83ede509096?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Victoria",
-      address: "24 Victoria Station Approach, Manchester M3 1WQ",
-      price: "£1,050 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1150,
-      type: "Featured",
-    },
-    {
-      id: "10",
-      image:
-        "https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=500&q=80",
-
-      title: "Studio 54",
-      address: "54 Chapel Street, Manchester M3 5BZ",
-      price: "£650 /month",
-      beds: 1,
-      baths: 1,
-      sqft: 600,
-      type: "Featured",
-    },
-    {
-      id: "11",
-      image:
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Penthouse Collection",
-      address: "1 Spinningfields, Manchester M3 3EB",
-      price: "£1,300 /month",
-      beds: 4,
-      baths: 3,
-      sqft: 1400,
-      type: "Featured",
-    },
-    {
-      id: "12",
-      image:
-        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500&q=80",
-
-      title: "Northern Quarter Living",
-      address: "36 Thomas Street, Manchester M4 1ER",
-      price: "£950 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1000,
-      type: "Featured",
-    },
-    {
-      id: "13",
-      image:
-        "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Charter",
-      address: "Charter Street, Manchester M1 6HF",
-      price: "£800 /month",
-      beds: 2,
-      baths: 2,
-      sqft: 900,
-      type: "Featured",
-    },
-    {
-      id: "14",
-      image:
-        "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?auto=format&fit=crop&w=500&q=80",
-
-      title: "Castlefield Wharf",
-      address: "12 Liverpool Road, Manchester M3 4JQ",
-      price: "£1,150 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1200,
-      type: "Featured",
-    },
-    {
-      id: "15",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500&q=80",
-
-      title: "The Salford Quays Apartments",
-      address: "7 Media City Way, Salford M50 2EQ",
-      price: "£700 /month",
-      beds: 2,
-      baths: 1,
-      sqft: 750,
-      type: "Featured",
-    },
-  ];
+  // Convert store properties to the format expected by PropertyCard
+  const allProperties = properties.map(property => ({
+    id: property.id,
+    image: property.images[0],
+    title: property.title,
+    address: property.address,
+    price: `£${property.rent.toLocaleString()} /month`,
+    beds: property.bedrooms,
+    baths: property.bathrooms,
+    sqft: property.area,
+    type: property.type,
+  }));
 
   // Filter properties based on search term and filters
   const filteredProperties = allProperties.filter((property) => {

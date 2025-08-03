@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Bed, Bath, Square, Wifi, Car, Coffee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+
+
 interface PropertyCardProps {
   image: string;
   title: string;
@@ -28,14 +30,14 @@ const PropertyCard = ({
 }: PropertyCardProps) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/property/${id}`); // Fixed: using destructured 'id' prop
+  const handleClick = (id: string) => {
+    navigate(`/properties/${id}`); // Fixed: using destructured 'id' prop
   };
 
   return (
     <Card
       className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
-      onClick={handleClick}
+      onClick={() => handleClick(id)} // Fixed: using destructured 'id' prop
       aria-label={`View details for ${title}`} // Added for accessibility
     >
       <div className="relative">

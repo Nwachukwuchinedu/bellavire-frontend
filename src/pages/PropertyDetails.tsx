@@ -42,7 +42,7 @@ interface Property {
 }
 
 const PropertyDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -61,9 +61,10 @@ const PropertyDetail = () => {
           return;
         }
 
-        // Check again after loading
-        if (properties.find((p) => p.id === id)) {
+        // Check if property exists in the store
+        if (!property) {
           setError("Property not found");
+          return;
         }
       } catch (err) {
         setError("Failed to load property details");
@@ -74,7 +75,7 @@ const PropertyDetail = () => {
     };
 
     fetchProperty();
-  }, [id, property, properties]);
+  }, [id, property]);
 
   const facilities = [
     { icon: Wifi, label: "Wifi" },

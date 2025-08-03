@@ -5,72 +5,14 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
 import TestimonialSection from "@/components/TestimonialCard";
+import { usePropertyStore } from "@/stores/propertyStore";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { properties } = usePropertyStore();
 
-  const properties = [
-    {
-      image: "/images/property1.png",
-      title: "Vivian's Luxury Apartment",
-      address: "Flat 12, Park View Road, Camden, London NW1 7HE",
-      price: "£1,200 /month",
-      beds: 4,
-      baths: 2,
-      sqft: 1200,
-      type: "Featured",
-    },
-    {
-      image: "/images/property2.png",
-      title: "Greenwich Court",
-      address: "Unit 5, Greenwich Court, Woolwich, London SE18 6XD",
-      price: "£800 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1000,
-      type: "Featured",
-    },
-    {
-      image: "/images/property3.png",
-      title: "Precious Apartments",
-      address: "20 Church Street, Ancoats, Manchester M4 1PN",
-      price: "£900 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 950,
-      type: "Featured",
-    },
-    {
-      image: "/images/property4.png",
-      title: "Montana Homes",
-      address: "82 Rose Lane, Mossley Hill, Liverpool L18 5ED",
-      price: "£700 /month",
-      beds: 2,
-      baths: 1,
-      sqft: 800,
-      type: "Featured",
-    },
-    {
-      image: "/images/property5.png",
-      title: "Ese's Palace",
-      address: "Flat 7, Clarendon Road, Leeds LS2 9DA",
-      price: "£850 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 950,
-      type: "Featured",
-    },
-    {
-      image: "/images/property6.png",
-      title: "Cynthia's Apartments",
-      address: "14 Deansgate, City Centre, Manchester M3 1FB",
-      price: "£950 /month",
-      beds: 3,
-      baths: 2,
-      sqft: 1100,
-      type: "Featured",
-    },
-  ];
+  // Get first 6 properties for the homepage
+  const featuredProperties = properties.slice(0, 6);
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -84,8 +26,19 @@ const Index = () => {
             Popular Properties
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-            {properties.map((property, index) => (
-              <PropertyCard key={index} {...property} />
+            {featuredProperties.map((property) => (
+              <PropertyCard 
+                key={property.id} 
+                id={property.id}
+                image={property.images[0]}
+                title={property.title}
+                address={property.address}
+                price={`£${property.rent.toLocaleString()} /month`}
+                beds={property.bedrooms}
+                baths={property.bathrooms}
+                sqft={property.area}
+                type={property.type}
+              />
             ))}
           </div>
           <div className="text-center">
