@@ -3,9 +3,11 @@
     "outputDirectory": "dist",
     "framework": "vite",
     "installCommand": "npm install",
-    "functions": {
-        "app/api/**/*.ts": {
-            "runtime": "nodejs22.17"
+    "devCommand": "npm run dev",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
         }
-    }
+    ]
 }
