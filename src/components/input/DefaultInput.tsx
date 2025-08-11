@@ -40,11 +40,11 @@ export const DefaultInput = ({
   const shouldShowEyeIcon = mask && props?.type == "password";
   const shouldShowValidationIcon = isValid && !shouldShowEyeIcon;
 
-  console.log(
-    `shouldShowEyeIcon: ${shouldShowEyeIcon}, toggleEye: ${toggleEye}, security: ${security}`
-  );
+  // console.log(
+  //   `shouldShowEyeIcon: ${shouldShowEyeIcon}, toggleEye: ${toggleEye}, security: ${security}`
+  // );
 
-  console.log(mask, props.type, security);
+  // console.log(mask, props.type, security);
 
   // Calculate right padding based on what icons are showing
   const rightPadding = shouldShowEyeIcon
