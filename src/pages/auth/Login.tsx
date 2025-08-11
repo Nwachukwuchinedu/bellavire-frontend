@@ -7,6 +7,7 @@ import { DefaultInput } from "@/components/input/DefaultInput";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useAuthStore } from "@/stores/authStore";
+<<<<<<< HEAD
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -15,6 +16,23 @@ const Login: React.FC = () => {
 
   const [error, setError] = useState("");
 
+=======
+import api from "@/api/api";
+
+const Login: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Zustand store methods and state
+  const login = useAuthStore((state) => state.login);
+  const loginWithGoogle = useAuthStore((state) => state.loginWithGoogle);
+  const googleAuthUrl = useAuthStore((state) => state.googleAuthUrl);
+  const isLoading = useAuthStore((state) => state.isLoading);
+  const setLoading = useAuthStore((state) => state.setLoading);
+
+  const [error, setError] = useState("");
+
+  // Validation schema
+>>>>>>> upstream/dev
   const loginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
@@ -22,15 +40,37 @@ const Login: React.FC = () => {
       .min(8, "Password must be at least 8 characters")
       .matches(/[A-Z]/, "Password must contain at least one capital letter")
       .matches(/[0-9]/, "Password must contain at least one number")
-      .matches(
-        /[^A-Za-z0-9]/,
-        "Password must contain at least one special character"
-      ),
+      .matches(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
   });
 
+<<<<<<< HEAD
   const handleGoogleLogin = () => {
     window.location.href = `${process.env.REACT_APP_API_BASE_URL}/auth/google`;
   };
+=======
+  // Google login handler
+  const handleGoogleLogin = async () => {
+  try {
+    const response = await api.post('/auth/login/google', {}, { withCredentials: true }); // POST with empty body and cookies included
+
+    // Expect the response to contain either 'redirectUrl' or 'url'
+    const data = response.data;
+
+    if (data.redirectUrl) {
+      window.location.href = data.redirectUrl;
+    } else if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Unexpected response from server during Google login.');
+      console.error('Unexpected response:', data);
+    }
+  } catch (err: any) {
+    alert('Google login failed: ' + (err.message || err));
+    console.error('Google login error:', err);
+  }
+};
+
+>>>>>>> upstream/dev
 
   return (
     <div className="relative min-h-screen h-[100vh] flex flex-col lg:flex-row">
@@ -68,7 +108,32 @@ const Login: React.FC = () => {
               try {
                 setError("");
                 await login(values.email, values.password);
+<<<<<<< HEAD
                 navigate("/dashboard"); // Redirect after successful login
+=======
+
+                const user = useAuthStore.getState().user;
+                const role = user?.role;
+
+                if (!role) throw new Error("User role not found");
+
+                switch (role.toLowerCase()) {
+                  case "tenant":
+                    navigate("/tenant/dashboard");
+                    break;
+                  case "landlord":
+                    navigate("/landlord/dashboard");
+                    break;
+                  case "admin":
+                    navigate("/admin/dashboard");
+                    break;
+                  case "agent":
+                    navigate("/agent/dashboard");
+                    break;
+                  default:
+                    navigate("/dashboard");
+                }
+>>>>>>> upstream/dev
               } catch (err: any) {
                 setError(err.message || "Invalid credentials");
               }
@@ -130,9 +195,13 @@ const Login: React.FC = () => {
                 <Button
                   type="submit"
                   disabled={
+<<<<<<< HEAD
                     !formik.values.email ||
                     !formik.values.password ||
                     isLoading
+=======
+                    !formik.values.email || !formik.values.password || isLoading
+>>>>>>> upstream/dev
                   }
                   className="w-full p-[14px] text-white text-lg rounded-[4px] bg-[#5a86ff] hover:bg-[#1B1E69] disabled:bg-[#afb2b6] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
@@ -151,6 +220,7 @@ const Login: React.FC = () => {
           </Formik>
 
           {/* Google Login Button outside form to avoid submit */}
+<<<<<<< HEAD
           <Button
             type="button"
             onClick={handleGoogleLogin}
@@ -159,6 +229,26 @@ const Login: React.FC = () => {
             <img src="/googleIcon.png" alt="Google logo" className="w-5 h-5" />
             Continue with Google
           </Button>
+=======
+          {/* <Button
+            type="button"
+            onClick={handleGoogleLogin}
+            disabled={isLoading}
+            className="mt-4 p-[14px] bg-white border-2 border-black hover:bg-transparent focus:bg-transparent text-black w-full flex items-center justify-center gap-2"
+          >
+            <img src="/googleIcon.png" alt="Google logo" className="w-5 h-5" />
+            {isLoading ? "Redirecting..." : "Continue with Google"}
+          </Button> */}
+          <Button
+  type="button"
+  onClick={handleGoogleLogin}
+  className="mt-4 p-[14px] bg-white border-2 border-black hover:bg-transparent focus:bg-transparent text-black w-full flex items-center justify-center gap-2"
+>
+  <img src="/googleIcon.png" alt="Google logo" className="w-5 h-5" />
+  Continue with Google
+</Button>
+
+>>>>>>> upstream/dev
         </div>
       </div>
     </div>
