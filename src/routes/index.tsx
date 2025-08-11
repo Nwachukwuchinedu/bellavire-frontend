@@ -18,6 +18,7 @@ import GoogleAuthPage from "@/pages/auth/GoogleAuthPage";
 import VerifyEmailAddressPage from "@/pages/auth/VerifyEmailAddressPage";
 import PersonInformation from "@/pages/auth/PersonInformation";
 import PropertyDetails from "@/pages/PropertyDetails";
+import GoogleCallback from "@/pages/auth/GoogleCallback";  
 
 // Protected Route Component
 const ProtectedRoute = ({
@@ -54,7 +55,7 @@ const DashboardRouter = () => {
     case "agent":
       return <AgentDashboard />;
     default:
-      return <Navigate to="/login" replace />;
+      return <Navigate to="/auth/login" replace />;
   }
 };
 
@@ -66,18 +67,14 @@ export const AppRoutes = () => {
       <Route path="/properties" element={<Properties />} />
       <Route path="/properties/:id" element={<PropertyDetails />} />
       <Route path="/auth/login" element={<Login />} />
-      <Route
-        path="/auth/initiate-register"
-        element={<InitiateRegisterPage />}
-      />
+      <Route path="/auth/initiate-register" element={<InitiateRegisterPage />} />
       <Route path="/auth/register" element={<Register />} />
       <Route path="/about-us" element={<AboutUs />} />
-
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/career" element={<Career />} />
-
       <Route path="/auth/forgot-password" element={<ForgotPassword />} />
       <Route path="/auth/google-auth" element={<GoogleAuthPage />} />
+      <Route path="/auth/google/callback" element={<GoogleCallback />} /> {/* <-- Add callback route */}
       <Route path="/auth/verify-email" element={<VerifyEmailAddressPage />} />
       <Route path="/auth/person-info" element={<PersonInformation />} />
 
@@ -85,9 +82,7 @@ export const AppRoutes = () => {
       <Route
         path="/dashboard"
         element={
-          <ProtectedRoute
-            allowedRoles={["admin", "landlord", "tenant", "agent"]}
-          >
+          <ProtectedRoute allowedRoles={["admin", "landlord", "tenant", "agent"]}>
             <DashboardRouter />
           </ProtectedRoute>
         }
