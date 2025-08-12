@@ -1,11 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios from 'axios';
-<<<<<<< HEAD
-import api from '@/api/api';
-=======
 import api from '@/api/api'; // your axios instance with baseURL
->>>>>>> upstream/dev
 
 export type UserRole = 'admin' | 'landlord' | 'tenant' | 'agent';
 
@@ -22,11 +18,6 @@ interface AuthState {
   isAuthenticated: boolean;
   isLoading: boolean;
   selectedRole: UserRole | null;
-<<<<<<< HEAD
-  token: string | null;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-=======
   token: string | null; // accessToken
   googleAuthUrl: string | null;
   login: (email: string, password: string) => Promise<void>;
@@ -36,7 +27,6 @@ interface AuthState {
   refreshGoogleAccessToken: (refreshToken: string) => Promise<void>;
   logout: () => Promise<void>;
   fetchCurrentUser: () => Promise<void>;
->>>>>>> upstream/dev
   setLoading: (loading: boolean) => void;
   setRole: (role: UserRole) => void;
 }
@@ -49,47 +39,12 @@ export const useAuthStore = create<AuthState>()(
       isLoading: false,
       selectedRole: null,
       token: null,
-<<<<<<< HEAD
-=======
       googleAuthUrl: null,
->>>>>>> upstream/dev
 
       setLoading: (isLoading) => set({ isLoading }),
 
       setRole: (role) => set({ selectedRole: role }),
 
-<<<<<<< HEAD
-      logout: () =>
-        set({
-          user: null,
-          token: null,
-          isAuthenticated: false,
-        }),
-
-      login: async (email: string, password: string) => {
-        set({ isLoading: true });
-
-        try {
-          const response = await api.post(
-            // 'auth/login{authProvider}',
-            'auth/login',
-            { email, password }
-          );
-
-          const { token, user } = response.data;
-
-          // Store token in axios for future requests
-          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-          set({
-            user,
-            token,
-            isAuthenticated: true,
-          });
-        } catch (error: any) {
-          console.error('Login error:', error?.response?.data || error.message);
-          throw new Error(error?.response?.data?.message || 'Login failed');
-=======
       login: async (email, password) => {
         set({ isLoading: true });
         try {
@@ -105,13 +60,10 @@ export const useAuthStore = create<AuthState>()(
         } catch (error: any) {
           console.error('Login error:', error?.response?.data || error.message);
           throw new Error(error?.response?.data?.error || 'Login failed');
->>>>>>> upstream/dev
         } finally {
           set({ isLoading: false });
         }
       },
-<<<<<<< HEAD
-=======
 
       loginWithGoogle: async () => {
         set({ isLoading: true });
@@ -222,7 +174,6 @@ export const useAuthStore = create<AuthState>()(
           await get().logout();
         }
       },
->>>>>>> upstream/dev
     }),
     {
       name: 'auth-storage',
@@ -231,10 +182,7 @@ export const useAuthStore = create<AuthState>()(
         token: state.token,
         isAuthenticated: state.isAuthenticated,
         selectedRole: state.selectedRole,
-<<<<<<< HEAD
-=======
         googleAuthUrl: state.googleAuthUrl,
->>>>>>> upstream/dev
       }),
     }
   )
